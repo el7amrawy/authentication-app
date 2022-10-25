@@ -3,7 +3,7 @@ import darck_icon from "../assets/icons/devchallenges.svg";
 
 const Login = ({ theme }) => {
   return (
-    <section className=" flex justify-center items-center w-full h-screen font-mono text-[#333333]">
+    <section className=" flex justify-center items-center w-full h-screen font-sans text-[#333333]">
       <form className=" py-10 px-16 shadow-lg rounded-3xl">
         {theme === "light" ? (
           <img src={light_icon} alt="icon" />
