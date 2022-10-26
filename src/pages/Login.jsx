@@ -17,9 +17,11 @@ const Login = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
 
   return (
-    <main className=" w-4/5 mx-auto flex justify-center flex-col items-center h-screen font-sans text-[#333333]">
-      <form className=" py-10 px-16 shadow-md rounded-3xl border border-[#BDBDBD] max-w-md">
-        <img src={logo} alt="icon" />
+    <main className=" sm:w-4/5 mx-auto flex justify-center flex-col items-center h-screen font-sans text-[#333333]">
+      <form className=" py-10 px-16 sm:shadow-md rounded-3xl sm:border border-[#BDBDBD] max-w-md">
+        <Link to="/">
+          <img src={logo} alt="icon" />
+        </Link>
         <div className=" mt-8 text-lg font-semibold max-w-xs">Login</div>
         <div className="mt-8 w-80">
           <div className=" shadow">

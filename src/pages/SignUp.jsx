@@ -20,9 +20,11 @@ const SignUp = () => {
   /* --------- handlers --------- */
 
   return (
-    <main className=" w-4/5 mx-auto flex justify-center flex-col items-center h-screen font-sans text-[#333333]">
-      <form className=" py-10 px-16 shadow-md rounded-3xl border border-[#BDBDBD] max-w-md">
-        <img src={logo} alt="icon" />
+    <main className=" sm:w-4/5 mx-auto flex justify-between mt-6 sm:mt-0 sm:justify-center flex-col items-center h-screen font-sans text-[#333333]">
+      <form className=" sm:py-10 sm:px-16 sm:shadow-md rounded-3xl sm:border border-[#BDBDBD] max-w-md">
+        <Link to="/">
+          <img src={logo} alt="icon" />
+        </Link>
         <div className=" mt-8 text-lg font-semibold max-w-xs">
           Join thousands of learners from around the world
         </div>
@@ -106,7 +108,7 @@ const SignUp = () => {
           </Link>
         </div>
       </form>
-      <div className=" flex justify-betweenmt-3 mt-3">
+      <div className=" flex justify-betweenmt-3 m-3">
         <span className=" inline-block text-gray-400">
           created by{" "}
           <a
