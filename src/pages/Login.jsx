@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
 // logo
 import logo from "../assets/icons/devchallenges.svg";
 // icons
@@ -9,30 +11,19 @@ import {
   faTwitter,
   faGithub,
 } from "@fortawesome/free-brands-svg-icons";
-//
-import { useState } from "react";
-import { Link } from "react-router-dom";
 
-const SignUp = () => {
+const Login = () => {
   /* --------- States --------- */
   const [formData, setFormData] = useState({ email: "", password: "" });
-
-  /* --------- handlers --------- */
 
   return (
     <main className=" w-4/5 mx-auto flex justify-center flex-col items-center h-screen font-sans text-[#333333]">
       <form className=" py-10 px-16 shadow-md rounded-3xl border border-[#BDBDBD] max-w-md">
         <img src={logo} alt="icon" />
-        <div className=" mt-8 text-lg font-semibold max-w-xs">
-          Join thousands of learners from around the world
-        </div>
-        <div className="max-w-xs mt-4">
-          Master web development by making real-life projects. There are
-          multiple paths for you to choose
-        </div>
-        <div className="mt-8">
+        <div className=" mt-8 text-lg font-semibold max-w-xs">Login</div>
+        <div className="mt-8 w-80">
           <div className=" shadow">
-            <label htmlFor="inp--emai" className="relative">
+            <label htmlFor="inp--emai" className="relative w-full">
               <input
                 id="inp--email"
                 type="email"
@@ -98,10 +89,10 @@ const SignUp = () => {
           </div>
         </div>
         <div className="text-sm text-gray-400  mt-7 text-center">
-          Adready a member?{" "}
-          <Link to="/login">
+          Don’t have an account yet?{" "}
+          <Link to="/">
             <span className=" inline-block text-[#2D9CDB] cursor-pointer">
-              Login
+              Register
             </span>
           </Link>
         </div>
@@ -122,4 +113,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default Login;
