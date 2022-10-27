@@ -33,8 +33,8 @@ const SignUp = () => {
           multiple paths for you to choose
         </div>
         <div className="mt-8">
-          <div className=" shadow">
-            <label htmlFor="inp--emai" className="relative">
+          <div>
+            <label htmlFor="inp--email" className="relative">
               <input
                 id="inp--email"
                 type="email"
@@ -46,7 +46,7 @@ const SignUp = () => {
                     email: ev.target.value,
                   }))
                 }
-                className="w-full py-3 pl-11 rounded-lg border border-[#BDBDBD] placeholder:text-[#828282] placeholder:text-base focus:outline-blue-500"
+                className="w-full py-3 pl-11 rounded-lg shadow border border-[#BDBDBD] placeholder:text-[#828282] placeholder:text-base focus:outline-blue-500"
               />
               <FontAwesomeIcon
                 icon={faEnvelope}
@@ -54,7 +54,7 @@ const SignUp = () => {
               />
             </label>
           </div>
-          <div className=" shadow mt-4">
+          <div className="mt-4">
             <label htmlFor="inp--password" className="relative  mt-4">
               <input
                 id="inp--password"
@@ -67,7 +67,7 @@ const SignUp = () => {
                 }
                 type="email"
                 placeholder="Password"
-                className="w-full py-3 pl-11 rounded-lg border border-[#BDBDBD] placeholder:text-[#828282] placeholder:text-base focus:outline-blue-500"
+                className="w-full py-3 pl-11 rounded-lg shadow border border-[#BDBDBD] placeholder:text-[#828282] placeholder:text-base focus:outline-blue-500"
               />
               <FontAwesomeIcon
                 icon={faLock}

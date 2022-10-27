@@ -24,8 +24,8 @@ const Login = () => {
         </Link>
         <div className=" mt-8 text-lg font-semibold max-w-xs">Login</div>
         <div className="mt-8 w-80">
-          <div className=" shadow">
-            <label htmlFor="inp--emai" className="relative w-full">
+          <div>
+            <label htmlFor="inp--email" className="relative w-full">
               <input
                 id="inp--email"
                 type="email"
@@ -37,7 +37,7 @@ const Login = () => {
                     email: ev.target.value,
                   }))
                 }
-                className="w-full py-3 pl-11 rounded-lg border border-[#BDBDBD] placeholder:text-[#828282] placeholder:text-base focus:outline-blue-500"
+                className="w-full py-3 pl-11 rounded-lg shadow border border-[#BDBDBD] placeholder:text-[#828282] placeholder:text-base focus:outline-blue-500"
               />
               <FontAwesomeIcon
                 icon={faEnvelope}
@@ -45,7 +45,7 @@ const Login = () => {
               />
             </label>
           </div>
-          <div className=" shadow mt-4">
+          <div className="mt-4">
             <label htmlFor="inp--password" className="relative  mt-4">
               <input
                 id="inp--password"
@@ -58,7 +58,7 @@ const Login = () => {
                 }
                 type="email"
                 placeholder="Password"
-                className="w-full py-3 pl-11 rounded-lg border border-[#BDBDBD] placeholder:text-[#828282] placeholder:text-base focus:outline-blue-500"
+                className="w-full py-3 pl-11 rounded-lg shadow border border-[#BDBDBD] placeholder:text-[#828282] placeholder:text-base focus:outline-blue-500"
               />
               <FontAwesomeIcon
                 icon={faLock}
