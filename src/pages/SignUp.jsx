@@ -11,7 +11,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 //
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 const SignUp = () => {
   /* --------- States --------- */
@@ -120,6 +120,7 @@ const SignUp = () => {
           </a>
         </span>
       </div>
+      <Outlet />
     </main>
   );
 };
