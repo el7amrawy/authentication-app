@@ -15,7 +15,7 @@ function App() {
           <Route index element={<SignUp />} />
           <Route path="login" element={<Login />} />
           <Route
-            path=":user"
+            path="user/:user_id"
             element={
               <>
                 <Header />
