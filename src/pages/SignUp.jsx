@@ -75,7 +75,7 @@ const SignUp = () => {
               />
             </label>
           </div>
-          <button className="w-full mt-6 cursor-pointer py-2 text-center text-white font-semibold bg-blue-500 rounded-lg">
+          <button className="w-full mt-6 cursor-pointer capitalize py-2 text-center text-white font-semibold bg-blue-500 rounded-lg focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
             Start coding now
           </button>
         </div>
@@ -120,7 +120,7 @@ const SignUp = () => {
           </a>
         </span>
       </div>
-      <Outlet />
+      {/* <Outlet /> */}
     </main>
   );
 };

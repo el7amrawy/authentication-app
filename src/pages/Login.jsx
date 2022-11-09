@@ -66,8 +66,8 @@ const Login = () => {
               />
             </label>
           </div>
-          <button className="w-full mt-6 cursor-pointer py-2 text-center text-white font-semibold bg-blue-500 rounded-lg">
-            Start coding now
+          <button className="w-full mt-6 cursor-pointer py-2 text-center capitalize text-white font-semibold bg-blue-500 rounded-lg focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+            login
           </button>
         </div>
         <div className=" text-sm text-gray-400  mt-8 text-center">
