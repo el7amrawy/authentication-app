@@ -11,17 +11,38 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 //
 import { useState } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import config from "../config";
 
-const SignUp = () => {
+const SignUp = ({ setUserData }) => {
+  const navigate = useNavigate();
   /* --------- States --------- */
   const [formData, setFormData] = useState({ email: "", password: "" });
 
   /* --------- handlers --------- */
-
+  function submitHandler(ev) {
+    ev.preventDefault();
+    if (formData.email.length && formData.password.length) {
+      axios
+        .post(config.apiHost + "/users", formData)
+        .then(({ data }) => data)
+        .then((data) => {
+          setUserData(data);
+          localStorage.setItem("authToken", data?.token);
+          sessionStorage.setItem("user", JSON.stringify(data?.user));
+          navigate(`/user/${data.user.id}`);
+        });
+    } else {
+      alert("pass and mail are required");
+    }
+  }
   return (
     <main className=" sm:w-4/5 mx-auto flex justify-between mt-6 sm:mt-0 sm:justify-center flex-col items-center h-screen font-sans text-[#333333]">
-      <form className=" sm:py-10 sm:px-16 sm:shadow-md rounded-3xl sm:border border-[#BDBDBD] max-w-md">
+      <form
+        onSubmit={submitHandler}
+        className=" sm:py-10 sm:px-16 sm:shadow-md rounded-3xl sm:border border-[#BDBDBD] max-w-md"
+      >
         <Link to="/">
           <img src={logo} alt="icon" />
         </Link>
@@ -65,7 +86,7 @@ const SignUp = () => {
                     password: ev.target.value,
                   }))
                 }
-                type="email"
+                type="password"
                 placeholder="Password"
                 className="w-full py-3 pl-11 rounded-lg shadow border border-[#BDBDBD] placeholder:text-[#828282] placeholder:text-base focus:outline-blue-500"
               />
@@ -120,7 +141,6 @@ const SignUp = () => {
           </a>
         </span>
       </div>
-      {/* <Outlet /> */}
     </main>
   );
 };
