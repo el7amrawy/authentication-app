@@ -9,11 +9,20 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import { useRef } from "react";
+import { useEffect } from "react";
 
 const Header = () => {
   /* --------- States --------- */
 
   const [showDropList, setShowDropList] = useState(false);
+
+  /* --------- Effects --------- */
+  useEffect(() => {
+    if (showDropList) {
+      document.documentElement.style.overflowX = "hidden";
+    }
+    return () => (document.documentElement.style.overflowX = "unset");
+  }, [showDropList]);
 
   /* --------- Refs --------- */
 

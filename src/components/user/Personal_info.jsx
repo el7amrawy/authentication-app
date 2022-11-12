@@ -1,4 +1,4 @@
-const Personal_info = () => {
+const Personal_info = ({ user }) => {
   return (
     <section>
       <div className=" text-center ">
@@ -35,7 +35,7 @@ const Personal_info = () => {
           </div>
           <div className=" md:w-3/5 overflow-hidden">
             <div className=" capitalize text-[#333333] font-medium text-base">
-              Xanthe Neal
+              {user.name}
             </div>
           </div>
         </div>
@@ -45,7 +45,7 @@ const Personal_info = () => {
           </div>
           <div className=" md:w-3/5 overflow-hidden">
             <div className=" capitalize text-[#333333] font-medium text-base">
-              I am a software developer and a big fan of devchallenges...
+              {user.bio}
             </div>
           </div>
         </div>
@@ -55,7 +55,7 @@ const Personal_info = () => {
           </div>
           <div className=" md:w-3/5 overflow-hidden">
             <div className=" capitalize text-[#333333] font-medium text-base">
-              908249274292
+              {user.phone}
             </div>
           </div>
         </div>
@@ -65,7 +65,7 @@ const Personal_info = () => {
           </div>
           <div className=" md:w-3/5 overflow-hidden">
             <div className=" capitalize text-[#333333] font-medium text-base">
-              xanthe.neal@gmail.com
+              {user.email}
             </div>
           </div>
         </div>

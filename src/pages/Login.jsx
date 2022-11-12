@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 // logo
 import logo from "../assets/icons/devchallenges.svg";
 // icons
@@ -11,14 +11,43 @@ import {
   faTwitter,
   faGithub,
 } from "@fortawesome/free-brands-svg-icons";
+import axios from "axios";
+import config from "../config";
 
 const Login = () => {
+  const navigate = useNavigate();
   /* --------- States --------- */
   const [formData, setFormData] = useState({ email: "", password: "" });
 
+  const handleSubmit = async (ev) => {
+    ev.preventDefault();
+    try {
+      if (formData.email.length && formData.password.length) {
+        const res = await axios.post(config.apiHost + "/users/get_id", {
+          email: formData.email,
+        });
+        const { id } = res.data;
+        const { data } = await axios.post(config.apiHost + "/users/auth", {
+          id,
+          password: formData.password,
+        });
+        setFormData(data);
+        sessionStorage.setItem("user", JSON.stringify(data?.user));
+        localStorage.setItem("authToken", data?.token);
+        navigate(`/user/${data.user.id}`);
+      } else {
+        alert("pass and mail are required");
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
   return (
     <main className=" sm:w-4/5 mx-auto flex justify-center flex-col items-center h-screen font-sans text-[#333333]">
-      <form className=" py-10 px-16 sm:shadow-md rounded-3xl sm:border border-[#BDBDBD] max-w-md">
+      <form
+        onSubmit={handleSubmit}
+        className=" py-10 px-16 sm:shadow-md rounded-3xl sm:border border-[#BDBDBD] max-w-md"
+      >
         <Link to="/">
           <img src={logo} alt="icon" />
         </Link>
@@ -56,7 +85,7 @@ const Login = () => {
                     password: ev.target.value,
                   }))
                 }
-                type="email"
+                type="password"
                 placeholder="Password"
                 className="w-full py-3 pl-11 rounded-lg shadow border border-[#BDBDBD] placeholder:text-[#828282] placeholder:text-base focus:outline-blue-500"
               />
@@ -92,7 +121,7 @@ const Login = () => {
         </div>
         <div className="text-sm text-gray-400  mt-7 text-center">
           Don’t have an account yet?{" "}
-          <Link to="/">
+          <Link to="/register">
             <span className=" inline-block text-[#2D9CDB] cursor-pointer">
               Register
             </span>

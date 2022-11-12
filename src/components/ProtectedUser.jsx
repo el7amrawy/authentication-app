@@ -1,7 +1,9 @@
-import { Navigate } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 
 const ProtectedUser = ({ children, userData }) => {
-  if (userData.token.length && userData.user?.id) {
+  const { user_id } = useParams();
+
+  if (userData.token.length && userData.user?.id == user_id) {
     return children;
   }
   return <Navigate to="/login" />;

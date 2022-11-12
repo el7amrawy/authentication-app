@@ -1,4 +1,10 @@
-import { Routes, Route, BrowserRouter, Outlet } from "react-router-dom";
+import {
+  Routes,
+  Route,
+  BrowserRouter,
+  Outlet,
+  Navigate,
+} from "react-router-dom";
 import config from "./config";
 // pages
 import SignUp from "./pages/SignUp";
@@ -14,12 +20,19 @@ function App() {
     token: localStorage.getItem("authToken"),
     user: JSON.parse(sessionStorage.getItem("user")),
   });
-  console.log(userData);
+  // console.log(userData);
   return (
     <BrowserRouter basename={config.base}>
       <Routes>
         <Route path="/" element={<Outlet />}>
-          <Route index element={<SignUp setUserData={setUserData} />} />
+          <Route
+            index
+            element={<Navigate to={`user/${userData.user?.id}`} />}
+          />
+          <Route
+            path="/register"
+            element={<SignUp setUserData={setUserData} />}
+          />
           <Route path="login" element={<Login setUserData={setUserData} />} />
           <Route
             path="user/:user_id"

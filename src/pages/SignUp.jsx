@@ -32,6 +32,9 @@ const SignUp = ({ setUserData }) => {
           localStorage.setItem("authToken", data?.token);
           sessionStorage.setItem("user", JSON.stringify(data?.user));
           navigate(`/user/${data.user.id}`);
+        })
+        .catch((err) => {
+          alert(err);
         });
     } else {
       alert("pass and mail are required");
