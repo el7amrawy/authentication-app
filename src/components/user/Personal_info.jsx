@@ -1,4 +1,4 @@
-const Personal_info = ({ user }) => {
+const Personal_info = ({ user, setEdit }) => {
   return (
     <section>
       <div className=" text-center ">
@@ -15,7 +15,10 @@ const Personal_info = ({ user }) => {
               Some info may be visible to other people
             </h5>
           </div>
-          <button className="shadow border border-[#828282] rounded-xl text-[#828282] text-base font-medium py-2 px-9 capitalize  focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+          <button
+            onClick={() => setEdit(true)}
+            className="shadow border border-[#828282] rounded-xl text-[#828282] text-base font-medium py-2 px-9 capitalize  focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+          >
             edit
           </button>
         </div>

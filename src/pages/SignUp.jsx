@@ -34,7 +34,10 @@ const SignUp = ({ setUserData }) => {
           navigate(`/user/${data.user.id}`);
         })
         .catch((err) => {
-          alert(err);
+          if (err.response.status == 406) {
+            alert("email is already used");
+          }
+          console.error(err);
         });
     } else {
       alert("pass and mail are required");

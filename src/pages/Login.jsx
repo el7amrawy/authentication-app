@@ -40,6 +40,7 @@ const Login = () => {
       }
     } catch (err) {
       console.error(err);
+      alert("wrong password");
     }
   };
   return (
