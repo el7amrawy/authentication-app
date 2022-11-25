@@ -28,7 +28,14 @@ const Personal_info = ({ user, setEdit }) => {
           </div>
           <div className=" md:w-3/5">
             <div className=" w-20 h-20 rounded-lg overflow-hidden">
-              <img src="" alt="avatar" className="w-full h-full" />
+              <img
+                src={
+                  user.img ||
+                  "https://www.ism.lu.se/themes/custom/lu_theme/images/default_images/usericon.png"
+                }
+                alt="avatar"
+                className="w-full h-full"
+              />
             </div>
           </div>
         </div>
@@ -67,7 +74,7 @@ const Personal_info = ({ user, setEdit }) => {
             Email
           </div>
           <div className=" md:w-3/5 overflow-hidden">
-            <div className=" capitalize text-[#333333] font-medium text-base">
+            <div className="text-[#333333] font-medium text-base">
               {user.email}
             </div>
           </div>

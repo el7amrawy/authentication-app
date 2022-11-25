@@ -26,15 +26,12 @@ const SignUp = ({ setUserData }) => {
     if (formData.email.length && formData.password.length) {
       axios
         .post(config.apiHost + "/users", formData)
-        .then(({ data }) => data)
-        .then((data) => {
+        .then(({ data }) => {
           setUserData(data);
-          localStorage.setItem("authToken", data?.token);
-          sessionStorage.setItem("user", JSON.stringify(data?.user));
           navigate(`/user/${data.user.id}`);
         })
         .catch((err) => {
-          if (err.response.status == 406) {
+          if (err.response?.status == 406) {
             alert("email is already used");
           }
           console.error(err);

@@ -14,13 +14,23 @@ import User from "./pages/User";
 import Header from "./components/Header";
 import ProtectedUser from "./components/ProtectedUser";
 import { useState } from "react";
+import { useEffect } from "react";
 
 function App() {
+  /* ------------------ States ------------------ */
   const [userData, setUserData] = useState({
     token: localStorage.getItem("authToken"),
     user: JSON.parse(sessionStorage.getItem("user")),
   });
-  // console.log(userData);
+  console.log(sessionStorage.getItem("user"));
+
+  /* ------------------ Effects ------------------ */
+  useEffect(() => {
+    localStorage.setItem("authToken", userData.token);
+    console.log(userData);
+    sessionStorage.setItem("user", JSON.stringify(userData.user));
+  }, [userData]);
+
   return (
     <BrowserRouter basename={config.base}>
       <Routes>
@@ -47,7 +57,11 @@ function App() {
               index
               element={
                 <ProtectedUser userData={userData}>
-                  <User user={userData.user} />
+                  <User
+                    setUserData={setUserData}
+                    user={userData.user}
+                    token={userData.token}
+                  />
                 </ProtectedUser>
               }
             />

@@ -14,7 +14,7 @@ import {
 import axios from "axios";
 import config from "../config";
 
-const Login = () => {
+const Login = ({ setUserData }) => {
   const navigate = useNavigate();
   /* --------- States --------- */
   const [formData, setFormData] = useState({ email: "", password: "" });
@@ -31,9 +31,7 @@ const Login = () => {
           id,
           password: formData.password,
         });
-        setFormData(data);
-        sessionStorage.setItem("user", JSON.stringify(data?.user));
-        localStorage.setItem("authToken", data?.token);
+        setUserData(data);
         navigate(`/user/${data.user.id}`);
       } else {
         alert("pass and mail are required");
