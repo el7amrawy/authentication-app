@@ -46,9 +46,10 @@ const Edit_info = ({ user, setEdit, token, setUserData }) => {
         { user: editData },
         { headers: { Authorization: `auth ${token}` } }
       );
-      console.log(data);
+      // console.log(data);
       setUserData((oldData) => ({ ...oldData, user: data }));
-      window.location.reload();
+      // window.location.reload();
+      setEdit(false);
     } catch (err) {
       console.error(err);
       alert(err.response.data);

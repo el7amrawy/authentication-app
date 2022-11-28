@@ -55,7 +55,9 @@ const Personal_info = ({ user, setEdit }) => {
           </div>
           <div className=" md:w-3/5 overflow-hidden">
             <div className=" capitalize text-[#333333] font-medium text-base">
-              {user.bio}
+              {user.bio?.length > 20
+                ? user.bio.slice(0, 20) + "...."
+                : user.bio}
             </div>
           </div>
         </div>

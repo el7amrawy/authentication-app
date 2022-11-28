@@ -11,7 +11,7 @@ import { useState } from "react";
 import { useRef } from "react";
 import { useEffect } from "react";
 
-const Header = () => {
+const Header = ({ user, setUserData }) => {
   /* --------- States --------- */
 
   const [showDropList, setShowDropList] = useState(false);
@@ -35,12 +35,19 @@ const Header = () => {
           <img src={logo} alt="logo" />
         </div>
         <div className="flex items-center">
-          <img alt="avatar" src="" />
+          <img
+            alt="avatar"
+            src={
+              user.img ||
+              "https://www.ism.lu.se/themes/custom/lu_theme/images/default_images/usericon.png"
+            }
+            className=" hidden sm:block w-8 h-8 rounded-lg object-cover"
+          />
           <div
             className="cursor-pointer font-bold text-xs text-black"
             onClick={() => setShowDropList(!showDropList)}
           >
-            <span className="inline-block px-3">Marcos</span>
+            <span className="inline-block px-3 capitalize">{user.name}</span>
             {showDropList ? (
               <FontAwesomeIcon icon={faCaretUp} />
             ) : (
@@ -75,7 +82,10 @@ const Header = () => {
                   </li>
                 </ul>
                 <ul className=" text-[#EB5757] ">
-                  <li className="flex items-center cursor-pointer p-3 mt-2 rounded-lg hover:bg-[#F2F2F2]">
+                  <li
+                    className="flex items-center cursor-pointer p-3 mt-2 rounded-lg hover:bg-[#F2F2F2]"
+                    onClick={() => setUserData({ token: "", user: {} })}
+                  >
                     <FontAwesomeIcon icon={faArrowRightFromBracket} />
                     <a className=" capitalize ml-4">Logout</a>
                   </li>

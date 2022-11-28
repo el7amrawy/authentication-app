@@ -22,12 +22,11 @@ function App() {
     token: localStorage.getItem("authToken"),
     user: JSON.parse(sessionStorage.getItem("user")),
   });
-  console.log(sessionStorage.getItem("user"));
+  // console.log(sessionStorage.getItem("user"));
 
   /* ------------------ Effects ------------------ */
   useEffect(() => {
     localStorage.setItem("authToken", userData.token);
-    console.log(userData);
     sessionStorage.setItem("user", JSON.stringify(userData.user));
   }, [userData]);
 
@@ -48,7 +47,7 @@ function App() {
             path="user/:user_id"
             element={
               <>
-                <Header />
+                <Header user={userData.user} setUserData={setUserData} />
                 <Outlet />
               </>
             }
