@@ -38,7 +38,7 @@ const Header = ({ user, setUserData }) => {
           <img
             alt="avatar"
             src={
-              user.img ||
+              user?.img ||
               "https://www.ism.lu.se/themes/custom/lu_theme/images/default_images/usericon.png"
             }
             className=" hidden sm:block w-8 h-8 rounded-lg object-cover"
@@ -47,7 +47,7 @@ const Header = ({ user, setUserData }) => {
             className="cursor-pointer font-bold text-xs text-black"
             onClick={() => setShowDropList(!showDropList)}
           >
-            <span className="inline-block px-3 capitalize">{user.name}</span>
+            <span className="inline-block px-3 capitalize">{user?.name}</span>
             {showDropList ? (
               <FontAwesomeIcon icon={faCaretUp} />
             ) : (
@@ -84,7 +84,7 @@ const Header = ({ user, setUserData }) => {
                 <ul className=" text-[#EB5757] ">
                   <li
                     className="flex items-center cursor-pointer p-3 mt-2 rounded-lg hover:bg-[#F2F2F2]"
-                    onClick={() => setUserData({ token: "", user: {} })}
+                    onClick={() => setUserData({ token: "", user: null })}
                   >
                     <FontAwesomeIcon icon={faArrowRightFromBracket} />
                     <a className=" capitalize ml-4">Logout</a>
