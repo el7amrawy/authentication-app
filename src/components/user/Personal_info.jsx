@@ -34,7 +34,7 @@ const Personal_info = ({ user, setEdit }) => {
                   "https://www.ism.lu.se/themes/custom/lu_theme/images/default_images/usericon.png"
                 }
                 alt="avatar"
-                className="w-full h-full"
+                className="w-full h-full object-cover"
               />
             </div>
           </div>

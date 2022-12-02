@@ -86,7 +86,7 @@ const Edit_info = ({ user, setEdit, token, setUserData }) => {
                 "https://www.ism.lu.se/themes/custom/lu_theme/images/default_images/usericon.png"
               })`,
             }}
-            className="rounded-lg overflow-hidden w-[72px] h-[72px] flex justify-center items-center cursor-pointer bg-contain"
+            className="rounded-lg overflow-hidden w-[72px] h-[72px] flex justify-center items-center cursor-pointer bg-cover"
           >
             <FontAwesomeIcon icon={faCamera} className=" text-white text-xl" />
             <input
