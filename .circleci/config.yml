@@ -33,6 +33,10 @@ jobs:
           command: |
             npm run build
       - run:
+          name: Configure git
+          command: |
+            git config user.email "circleci@circleci.com" && git config user.name "circleci"
+      - run:
           name: Deploy
           command: |
             npm install && npm run deploy
