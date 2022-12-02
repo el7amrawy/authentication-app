@@ -24,10 +24,6 @@ jobs:
       - node/install:
           node-version: "16.17.1"
       - checkout
-      # - run:
-      #     name: Configure git
-      #     command: |
-      #       git config user.email "circleci@circleci.com" && git config user.name "circleci"
       - run:
           name: Install packages
           command: |
@@ -40,10 +36,19 @@ jobs:
           name: Deploy
           command: |
             npm install && npm run deploy
+
 workflows:
   build and deploy:
     jobs:
       - build
-      - deploy:
+      - hold:
+          filters:
+            branches:
+              only:
+                - master
+          type: approval
           requires:
             - build
+      - deploy:
+          requires:
+            - hold
