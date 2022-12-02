@@ -29,6 +29,14 @@ jobs:
           command: |
             git config user.email "circleci@circleci.com" && git config user.name "circleci"
       - run:
+          name: Install packages
+          command: |
+            npm install
+      - run:
+          name: Install packages
+          command: |
+            npm run build
+      - run:
           name: Deploy
           command: |
             npm install && npm run deploy
