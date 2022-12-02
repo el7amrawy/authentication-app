@@ -50,9 +50,7 @@ const Personal_info = ({ user, setEdit }) => {
           </div>
         </div>
         <div className="sm:px-12 py-7 flex justify-between items-center border-b-2">
-          <div className="text-[#BDBDBD] uppercase text-sm font-medium">
-            bio
-          </div>
+          <div className="text-[#BDBDBD] text-sm font-medium">bio</div>
           <div className=" md:w-3/5 overflow-hidden">
             <div className=" capitalize text-[#333333] font-medium text-base">
               {user.bio?.length > 20
