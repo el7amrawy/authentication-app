@@ -5,14 +5,10 @@ import logo from "../assets/icons/devchallenges.svg";
 // icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons";
-import {
-  faGoogle,
-  faSquareFacebook,
-  faTwitter,
-  faGithub,
-} from "@fortawesome/free-brands-svg-icons";
+//
 import axios from "axios";
 import config from "../config";
+import Social from "../components/Social";
 
 const Login = ({ setUserData }) => {
   const navigate = useNavigate();
@@ -98,26 +94,7 @@ const Login = ({ setUserData }) => {
             login
           </button>
         </div>
-        <div className=" text-sm text-gray-400  mt-8 text-center">
-          or continue with these social profile
-        </div>
-        <div className="flex justify-center mt-6">
-          <div className=" border border-[#828282] rounded-full p-3 mx-2 flex justify-center cursor-pointer">
-            <FontAwesomeIcon icon={faGoogle} className=" text-[#828282] " />
-          </div>
-          <div className=" border border-[#828282] rounded-full p-3 mx-2 flex justify-center cursor-pointer">
-            <FontAwesomeIcon
-              icon={faSquareFacebook}
-              className=" text-[#828282] "
-            />
-          </div>
-          <div className=" border border-[#828282] rounded-full p-3 mx-2 flex justify-center cursor-pointer">
-            <FontAwesomeIcon icon={faTwitter} className=" text-[#828282] " />
-          </div>
-          <div className=" border border-[#828282] rounded-full p-3 mx-2 flex justify-center cursor-pointer">
-            <FontAwesomeIcon icon={faGithub} className=" text-[#828282] " />
-          </div>
-        </div>
+        <Social setUserData={setUserData} />
         <div className="text-sm text-gray-400  mt-7 text-center">
           Don’t have an account yet?{" "}
           <Link to="/register">

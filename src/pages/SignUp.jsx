@@ -3,17 +3,12 @@ import logo from "../assets/icons/devchallenges.svg";
 // icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons";
-import {
-  faGoogle,
-  faSquareFacebook,
-  faTwitter,
-  faGithub,
-} from "@fortawesome/free-brands-svg-icons";
 //
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import config from "../config";
+import Social from "../components/Social";
 
 const SignUp = ({ setUserData }) => {
   const navigate = useNavigate();
@@ -40,6 +35,7 @@ const SignUp = ({ setUserData }) => {
       alert("pass and mail are required");
     }
   }
+
   return (
     <main className=" sm:w-4/5 mx-auto flex justify-between mt-6 sm:mt-0 sm:justify-center flex-col items-center h-screen font-sans text-[#333333]">
       <form
@@ -103,26 +99,7 @@ const SignUp = ({ setUserData }) => {
             Start coding now
           </button>
         </div>
-        <div className=" text-sm text-gray-400  mt-8 text-center">
-          or continue with these social profile
-        </div>
-        <div className="flex justify-center mt-6">
-          <div className=" border border-[#828282] rounded-full p-3 mx-2 flex justify-center cursor-pointer">
-            <FontAwesomeIcon icon={faGoogle} className=" text-[#828282] " />
-          </div>
-          <div className=" border border-[#828282] rounded-full p-3 mx-2 flex justify-center cursor-pointer">
-            <FontAwesomeIcon
-              icon={faSquareFacebook}
-              className=" text-[#828282] "
-            />
-          </div>
-          <div className=" border border-[#828282] rounded-full p-3 mx-2 flex justify-center cursor-pointer">
-            <FontAwesomeIcon icon={faTwitter} className=" text-[#828282] " />
-          </div>
-          <div className=" border border-[#828282] rounded-full p-3 mx-2 flex justify-center cursor-pointer">
-            <FontAwesomeIcon icon={faGithub} className=" text-[#828282] " />
-          </div>
-        </div>
+        <Social setUserData={setUserData} />
         <div className="text-sm text-gray-400  mt-7 text-center">
           Adready a member?{" "}
           <Link to="/login">
